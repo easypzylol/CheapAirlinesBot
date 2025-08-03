@@ -27,14 +27,13 @@ def send_welcome(message):
 
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton("📢 Join Channel", url=CHANNEL_LINK))
-    bot.send_message(message.chat.id,
-        f"👋 Welcome, {message.from_user.first_name}!
-"
-        "Thanks for starting the bot.
 
-"
-        "🔗 Check out our channel for latest updates:",
-        reply_markup=markup)
+    welcome_text = (
+        f"👋 Welcome, {message.from_user.first_name}!\n\n"
+        "Thanks for starting the bot.\n\n"
+        "🔗 Check out our channel for latest updates:"
+    )
+    bot.send_message(message.chat.id, welcome_text, reply_markup=markup)
 
 print("🤖 Bot is running...")
 bot.polling()
